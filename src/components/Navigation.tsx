@@ -40,23 +40,25 @@ const Navigation: React.FC = () => {
 		<Nav>
 			<NavList>
 				<NavListItem>
-					<NavLink to="/"
-									 exact
-									 activeStyle={{
-										 color: "black",
-										 fontWeight: "bold"
-									 }}
+					<NavLink 
+						to="/"
+						exact
+						activeStyle={{
+							color: "black",
+							fontWeight: "bold"
+						}}
 					>
 						Reports
 					</NavLink>
 				</NavListItem>
 				<NavListItem>
-					<NavLink to="/report/add"
-									 activeStyle={{
-										 color: "black",
-										 fontWeight: "bold"
-									 }}
-									 isActive={isReportEditionActive}
+					<NavLink 
+						to="/report/add"
+						activeStyle={{
+							color: "black",
+							fontWeight: "bold"
+						}}
+						isActive={isReportEditionActive}
 					>
 						New/Edit Report
 					</NavLink>

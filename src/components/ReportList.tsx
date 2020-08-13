@@ -18,10 +18,11 @@ const ReportList: React.FC<ReportListType> = ({ reports, handleDeleteClick }) =>
 		<div>
 			{reports.length ?
 				reports.map((report, idx) =>
-					<ReportPreview key={idx}
-												 data={report}
-												 handleDeleteClick={handleDeleteClick}
-												 handleReportClick={() => onReportClick(report.id)}
+					<ReportPreview 
+						key={idx}
+						data={report}
+						handleDeleteClick={handleDeleteClick}
+						handleReportClick={() => onReportClick(report.id)}
 				/>)
 				: <NoReportsInfo>No reports. In order to add report, click <em>New/Edit Report</em>.</NoReportsInfo>}
 		</div>

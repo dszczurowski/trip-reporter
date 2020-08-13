@@ -13,12 +13,14 @@ const SelectBox: React.FC<SelectBoxType> = ({ name, options, title, value, onCha
 	return (
 		<FormFieldWrapper>
 			<SelectBoxLabel><em>{title}</em></SelectBoxLabel>
-			<Select name={name}
-							options={options}
-							title="Visisted country:"
-							placeholder="Select Country..."
-							value={value}
-							onChange={onChangeInput} />
+			<Select 
+				name={name}
+				options={options}
+				title="Visisted country:"
+				placeholder="Select Country..."
+				value={value}
+				onChange={onChangeInput}
+			/>
 		</FormFieldWrapper>
 	);
 };

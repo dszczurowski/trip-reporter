@@ -60,46 +60,54 @@ const ReportDetails: React.FC = () => {
 
 	return (
 		<React.Fragment>
-			<SelectBox options={countries}
-								 name="country"
-								 value={state.country}
-								 title="Visited country:"
-								 placeholder="Select Country..."
-								 onChangeInput={handleSelectChange}
+			<SelectBox 
+				options={countries}
+				name="country"
+				value={state.country}
+				title="Visited country:"
+				placeholder="Select Country..."
+				onChangeInput={handleSelectChange}
 			/>
-			<MonthPicker id="trip-start"
-									 name="tripStartDate"
-									 title="Start of the trip:"
-									 value={state.tripStartDate}
-									 onChangeInput={handleChange}
+			<MonthPicker 
+				id="trip-start"
+				name="tripStartDate"
+				title="Start of the trip:"
+				value={state.tripStartDate}
+				onChangeInput={handleChange}
 			/>
-			<NumberField id="trip-duration"
-									 name="tripDuration"
-									 value={state.tripDuration}
-									 label="Trip duration (days):"
-									 onChangeInput={handleChange}
+			<NumberField 
+				id="trip-duration"
+				name="tripDuration"
+				value={state.tripDuration}
+				label="Trip duration (days):"
+				onChangeInput={handleChange}
 			/>
-			<TextArea id="trip-description"
-								name="tripDescription"
-								title="Trip description:"
-								value={state.tripDescription}
-								onChangeInput={handleChange}
+			<TextArea 
+				id="trip-description"
+				name="tripDescription"
+				title="Trip description:"
+				value={state.tripDescription}
+				onChangeInput={handleChange}
 			/>
-			<CheckboxBoxGroup ids={friendsList}
-												name="friendsList"
-												title="Travel companions:"
-												checkedValues={state.friendsList}
-												onChangeCheckbox={handleCheckboxChange}
+			<CheckboxBoxGroup 
+				ids={friendsList}
+				name="friendsList"
+				title="Travel companions:"
+				checkedValues={state.friendsList}
+				onChangeCheckbox={handleCheckboxChange}
 			/>
-			<RadioBox ids={['Destination', 'Transit']}
-								name="tripDestination"
-								title="Was the country a destination or a transit?"
-								value={state.tripDestination}
-								onChangeInput={handleChange}/>
+			<RadioBox 
+				ids={['Destination', 'Transit']}
+				name="tripDestination"
+				title="Was the country a destination or a transit?"
+				value={state.tripDestination}
+				onChangeInput={handleChange}
+			/>
 
-			<Button onClick={handleSubmit}
-							variant="submit"
-							label={`${isAddMode ? 'Add': 'Edit'} report`}
+			<Button 
+				onClick={handleSubmit}
+				variant="submit"
+				label={`${isAddMode ? 'Add': 'Edit'} report`}
 			/>
 
 		</React.Fragment>

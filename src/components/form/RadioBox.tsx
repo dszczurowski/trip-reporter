@@ -14,12 +14,13 @@ const RadioBox: React.FC<FormInputType> = ({ ids, name, title, value, onChangeIn
 			<em>{title}</em>
 			{ids && ids.map(id => (
 				<RadioInputLabel key={id} htmlFor={id}>
-					<input type="radio"
-											id={id}
-											name={name}
-											value={id}
-											checked={value.includes(id)}
-											onChange={onChangeInput}
+					<input 
+						type="radio"
+						id={id}
+						name={name}
+						value={id}
+						checked={value.includes(id)}
+						onChange={onChangeInput}
 					/>
 					{id}
 				</RadioInputLabel>

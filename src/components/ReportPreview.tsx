@@ -66,9 +66,10 @@ const ReportPreview: React.FC<ReportTypeProps> = ({ data, handleDeleteClick, han
 					Travel companions: {friendsList.length ? friendsList.join(', ') : 'no one'}
 				</p>
 				<RightTopCornerElement>
-					<Button onClick={onDeleteClick}
-									variant="cancel"
-									label="X"
+					<Button 
+						onClick={onDeleteClick}
+						variant="cancel"
+						label="X"
 					/>
 				</RightTopCornerElement>
 			</Article>

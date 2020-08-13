@@ -43,9 +43,11 @@ const ReportListWithSearch: React.FC = () => {
 
 	return (
 		<React.Fragment>
-			<SearchBar type="search"
-						  placeholder="Search reports..."
-						  onChange={e => debouncedCallback(e.target.value)} />
+			<SearchBar 
+				type="search"
+				placeholder="Search reports..."
+				onChange={e => debouncedCallback(e.target.value)}
+			/>
 			<ReportList reports={filteredReports || reports} handleDeleteClick={onDeleteClick}/>
 		</React.Fragment>
 
