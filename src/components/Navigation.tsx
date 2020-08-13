@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-	NavLink
+  NavLink
 } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -12,8 +12,8 @@ const Nav = styled.nav`
 `;
 
 const NavList = styled.ul`
-	display: inline-flex;
-	list-style-type: none;
+  display: inline-flex;
+  list-style-type: none;
   margin: 0;
   padding: .5rem;
   overflow: hidden;
@@ -21,51 +21,51 @@ const NavList = styled.ul`
 `;
 
 const NavListItem = styled.li`
-	& a {
-		color: #666;
-		text-align: center;
-		padding: 1rem;
-		text-decoration: none;
-	}
-	
-	& a:hover:not(.active) {
-		background-color: #ddd;
-	}
+  & a {
+    color: #666;
+    text-align: center;
+    padding: 1rem;
+    text-decoration: none;
+  }
+  
+  & a:hover:not(.active) {
+    background-color: #ddd;
+  }
 `;
 
 const Navigation: React.FC = () => {
-	const isReportEditionActive = (match, location) => location.pathname.includes('report');
+  const isReportEditionActive = (match, location) => location.pathname.includes('report');
 
-	return (
-		<Nav>
-			<NavList>
-				<NavListItem>
-					<NavLink 
-						to="/"
-						exact
-						activeStyle={{
-							color: "black",
-							fontWeight: "bold"
-						}}
-					>
-						Reports
-					</NavLink>
-				</NavListItem>
-				<NavListItem>
-					<NavLink 
-						to="/report/add"
-						activeStyle={{
-							color: "black",
-							fontWeight: "bold"
-						}}
-						isActive={isReportEditionActive}
-					>
-						New/Edit Report
-					</NavLink>
-				</NavListItem>
-			</NavList>
-		</Nav>
-	);
+  return (
+    <Nav>
+      <NavList>
+        <NavListItem>
+          <NavLink 
+            to="/"
+            exact
+            activeStyle={{
+              color: "black",
+              fontWeight: "bold"
+            }}
+          >
+            Reports
+          </NavLink>
+        </NavListItem>
+        <NavListItem>
+          <NavLink 
+            to="/report/add"
+            activeStyle={{
+              color: "black",
+              fontWeight: "bold"
+            }}
+            isActive={isReportEditionActive}
+          >
+            New/Edit Report
+          </NavLink>
+        </NavListItem>
+      </NavList>
+    </Nav>
+  );
 };
 
 export default Navigation;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { ButtonType } from '../types';
 
 const ButtonElem = styled.button<ButtonType>`
-	background-color: ${props => props.variant === 'submit' ? "#4CAF50" : "#D10808"}
+  background-color: ${props => props.variant === 'submit' ? "#4CAF50" : "#D10808"}
   color: white; 
   border: none;
   padding: .5rem 1rem;
@@ -17,14 +17,14 @@ const ButtonElem = styled.button<ButtonType>`
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
   
   &:hover {
-  	opacity: .5;
+    opacity: .5;
   }
 `;
 
 const Button: React.FC<ButtonType> = ({ label, variant, onClick }) => {
-	return (
-		<ButtonElem variant={variant} onClick={onClick}>{label}</ButtonElem>
-	);
+  return (
+    <ButtonElem variant={variant} onClick={onClick}>{label}</ButtonElem>
+  );
 };
 
 export default Button;

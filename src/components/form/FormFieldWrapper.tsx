@@ -5,16 +5,16 @@ const FormField = styled.div`
   margin: 2rem 0;
   width: 40vw;
   & * {
-  	font-size: 1rem;  
+    font-size: 1rem;  
   }
 `;
 
 const FormFieldWrapper: React.FC = (props) => {
-	return (
-		<FormField>
-			{props.children}
-		</FormField>
-	);
+  return (
+    <FormField>
+      {props.children}
+    </FormField>
+  );
 };
 
 export default FormFieldWrapper;
