@@ -3,7 +3,7 @@ import { extractCountriesNames } from './transformData';
 
 export default {
   getCountriesNames: (): Promise<AxiosResponse> =>
-    axios.get('https://restcountries.eu/rest/v2/all', {
+    axios.get(process.env.REACT_APP_COUNTRY_API, {
       transformResponse: data => extractCountriesNames(JSON.parse(data))
     })
 }

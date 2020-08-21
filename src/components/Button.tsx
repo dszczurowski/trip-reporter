@@ -19,11 +19,16 @@ const ButtonElem = styled.button<ButtonType>`
   &:hover {
     opacity: .5;
   }
+
+  &[disabled] {
+    background-color: gray;
+    cursor: not-allowed;
+  }
 `;
 
-const Button: React.FC<ButtonType> = ({ label, variant, onClick }) => {
+const Button: React.FC<ButtonType> = ({ label, disabled, variant, onClick }) => {
   return (
-    <ButtonElem variant={variant} onClick={onClick}>{label}</ButtonElem>
+    <ButtonElem disabled={disabled} variant={variant} onClick={onClick}>{label}</ButtonElem>
   );
 };
 

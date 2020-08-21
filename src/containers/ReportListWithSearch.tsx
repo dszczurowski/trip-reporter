@@ -21,7 +21,7 @@ const ReportListWithSearch: React.FC = () => {
 
   const onDeleteClick = (id: number) => {
     removeReportFromStorage(id);
-    setReports(getReportsFromStorage());
+    setReports(reports.filter(report => report.id !== id));
   };
 
   useEffect(() => {
@@ -29,16 +29,16 @@ const ReportListWithSearch: React.FC = () => {
   }, []);
 
   const [debouncedCallback] = useDebouncedCallback(
-    (value) => {
+    (value: string) => {
       if (value) {
         setFilteredReports(reports.filter((report: ReportType) =>
-          report.tripDescription.toLowerCase().includes(value) || report.country.label.toLowerCase().includes(value)
+          [report.tripDescription, report.country.label].some(label => label.toLowerCase().includes(value))
         ));
       } else {
         setFilteredReports(null);
       }
     },
-    1000
+    800
   );
 
   return (

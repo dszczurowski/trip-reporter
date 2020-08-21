@@ -5,7 +5,7 @@ import {
 import styled from 'styled-components';
 
 const Nav = styled.nav`
-  width: 100vw;
+  width: 100%;
   margin-bottom: 1rem;
   line-height: 2rem;
   background-color: #f3f3f3;

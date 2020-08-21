@@ -37,7 +37,8 @@ export interface FormInputType {
 	id?: string,
 	ids?: string[],
 	name: string,
-	title?: string
+	title?: string,
+	error?: string,
 	options?: SelectBoxValue
 }
 
@@ -53,5 +54,6 @@ export interface SelectBoxType {
 export interface ButtonType {
 	onClick: (e: React.MouseEvent) => void,
 	label?: string,
+	disabled?: boolean,
 	variant?: string
 }

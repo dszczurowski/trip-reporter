@@ -11,7 +11,7 @@ import styled from 'styled-components';
 
 const Main = styled.main`
   box-sizing: border-box;
-  width: 100vw;
+  width: 100%;
   padding-left: 1rem;
 `;
 

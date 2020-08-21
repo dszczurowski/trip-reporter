@@ -77,4 +77,4 @@ const ReportPreview: React.FC<ReportTypeProps> = ({ data, handleDeleteClick, han
   );
 };
 
-export default ReportPreview;
+export default React.memo(ReportPreview, (prevProps, nextProps) => prevProps.data === nextProps.data);

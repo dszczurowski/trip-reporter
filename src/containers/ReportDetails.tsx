@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import useFetchCountries from '../hooks/useFetchCountries';
 import { addReportToStorage, editReportFromStorage, getSingleReportFromStorage} from '../utils/localStorage';
 import { useHistory, useParams } from 'react-router-dom';
@@ -21,6 +21,8 @@ const emptyReport = {
   tripDestination: ""
 };
 
+const isNotEmpty = (val) => val !== '';
+
 const ReportDetails: React.FC = () => {
   const history = useHistory();
   const { id } = useParams();
@@ -28,6 +30,13 @@ const ReportDetails: React.FC = () => {
   const isAddMode = id === 'add';
 
   const [state, setState] = useState({ ...emptyReport, id: Date.now() });
+  const [validation, setValidation] = useState({ tripStartDate: true, tripDuration: true});
+  const { tripStartDate, tripDuration } = state;
+
+  const validate = useCallback(
+    () => ({ tripStartDate: isNotEmpty(tripStartDate), tripDuration: isNotEmpty(tripDuration)}),
+    [tripStartDate, tripDuration]
+  );
 
   useEffect(() => {
     if (isAddMode) {
@@ -36,6 +45,10 @@ const ReportDetails: React.FC = () => {
       setState(getSingleReportFromStorage(id));
     }
   }, [id, isAddMode]);
+
+  useEffect(() => {
+    setValidation(validate());
+  }, [tripStartDate, tripDuration, validate]);
 
   const handleSelectChange = (country: SelectBoxValue) => setState({ ...state, country });
 
@@ -71,15 +84,17 @@ const ReportDetails: React.FC = () => {
       <MonthPicker 
         id="trip-start"
         name="tripStartDate"
-        title="Start of the trip:"
-        value={state.tripStartDate}
+        title="Start of the trip*:"
+        value={tripStartDate}
+        error={!validation.tripStartDate ? 'Please choose start date' : ''}
         onChangeInput={handleChange}
       />
       <NumberField 
         id="trip-duration"
         name="tripDuration"
-        value={state.tripDuration}
-        label="Trip duration (days):"
+        value={tripDuration}
+        error={!validation.tripDuration ? 'Please choose duration' : ''}
+        label="Trip duration (days)*:"
         onChangeInput={handleChange}
       />
       <TextArea 
@@ -107,6 +122,7 @@ const ReportDetails: React.FC = () => {
       <Button 
         onClick={handleSubmit}
         variant="submit"
+        disabled={Object.values(validation).some(vld => !vld)}
         label={`${isAddMode ? 'Add': 'Edit'} report`}
       />
 
